@@ -39,21 +39,56 @@
                     I guess this is kinda fun though learning along the way.
        
                   <div class="tab-titles">
-                    <p class="tab-links active-link"> Skills</p>
-                    <p class="tab-links"> Experience</p>
-                    <p class="tab-links"> Skills</p>
+                    <p class="tab-links active-link" onclick="opentab('skills')"> Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')"> Experience</p>
+                    <p class="tab-links" onclick="opentab('coding')"> Coding Language</p>
                   </div>
-               <div class="tab-contents">
+               <div class="tab-contents active-tab" id="skills">
                 <ul>
                     <li><span>Web Development</span><br>Web Interface Developer</li>
                     <li><span>Game Development</span><br>3D Game Developer</li>
                     <li><span>VFX Development</span><br>VFX Movie/Video Designer</li>
                 </ul>
                </div> 
+               <div class="tab-contents" id="experience">
+                <ul>
+                    <li><span>2022 - Current</span><br>Team Lead at White-Box Studios</li>
+                    <li><span>2021</span><br>Skilled VFX and UI Designer</li>
+                    <li><span>2019 - 2020</span><br>Game Developer at Rumbles Studios.</li>
+                </ul>
+               </div> 
+               <div class="tab-contents" id="coding">
+                <ul>
+                    <li><span>JavaScript</span><br>Intermediate in JavaScript</li>
+                    <li><span>Python</span><br>Professional in Python</li>
+                    <li><span>Lua</span><br>Professional in Lua</li>
+                    <li><span>Html</span><br>Intermediate in Html</li>
+                    <li><span>C#</span><br>Novice in C#</li>
+                    <li><span>C++</span><br>Intermediate in C++</li>
+                </ul>
+               </div> 
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+  var tablinks = document.getElementsByClassName("tab-links");
+  var tabcontents = document.getElementsByClassName("tab-contents");
+
+  function opentab(tabname){
+    for(tablink of tablinks){
+        tablink.classList.remove("active-link")
+    }
+    for(tabcontent of tabcontents){
+        tabcontent.classList.remove("active-tab")
+    }
+    event.currentTarget.classList.add("active-link");
+    document.getElementById(tabname).classList.add("active-tab");
+  }
+
+</script>
 
 </body>
 </html>
