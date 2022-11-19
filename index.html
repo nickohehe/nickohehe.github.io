@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <title> Portfolio</title>
+    <title> Nicko's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/16181b8a61.js" crossorigin="anonymous"></script>
 </head>
@@ -104,8 +104,8 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact me</h1>
-                <p><i class="fa-sharp fa-solid fa-paper-plane"></i>vnageyy@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>09959862044</p>
+                <p><i class="fa-sharp fa-solid fa-paper-plane"></i>nickoportfolio3@gmail.com</p>
+                <p><i class="fa-solid fa-phone"></i>09915728075</p>
                 <div class="social-icons">
                     <a href="https://github.com/nickohehe"><i class="fa-brands fa-github"></i></a>
                     <a href="https://twitter.com/DifferentNicko"><i class="fa-brands fa-twitter"></i></a>
@@ -118,6 +118,8 @@
                     <input type="email" name="Email" placeholder="Your email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
                     <button type="submit" class="btn btn2">SUBMIT</button>
+                </form>
+                <span id="msg"></span>
             </div>
             </div>
         </div>
@@ -160,11 +162,18 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzD4OmTMyKoYN9Cs-wylf_0eZ28XyXvXyMaWqq0AKeMjR6Yh5qJhZdLSwLZd8_7Sz_o/exec'
     const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
   
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+        })
         .catch(error => console.error('Error!', error.message))
     })
   </script>
